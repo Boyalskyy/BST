@@ -18,7 +18,11 @@ func Remove(t *tree2.Tree) http.HandlerFunc {
 		}
 		tree2.Delete(t.Root, xRemove)
 		fmt.Fprintf(w, "Remove %v from BST", xRemove)
-		tree2.PrintPreOrder(t.Root)
+		fmt.Fprintf(w, "\n")
+		var s string
+		stringBST := tree2.PrintPreOrder(t.Root, &s)
+		fmt.Fprintf(w, "Binary Search Tree: %v", stringBST)
+		tree2.PrintPreOrder(t.Root, &s)
 	})
 }
 func Insert(t *tree2.Tree) http.HandlerFunc {
@@ -30,7 +34,11 @@ func Insert(t *tree2.Tree) http.HandlerFunc {
 		}
 		t.InsertRoot(xInsert)
 		fmt.Fprintf(w, "Insert %v to BST", xInsert)
-		tree2.PrintPreOrder(t.Root)
+		fmt.Fprintf(w, "\n")
+		var s string
+		stringBST := tree2.PrintPreOrder(t.Root, &s)
+		fmt.Fprintf(w, "Binary Search Tree: %v", stringBST)
+		tree2.PrintPreOrder(t.Root, &s)
 	})
 }
 func Search(t *tree2.Tree) http.HandlerFunc {
@@ -40,9 +48,14 @@ func Search(t *tree2.Tree) http.HandlerFunc {
 		if err != nil {
 			fmt.Println(errors.Wrap(err, "convert error"))
 		}
-		tree2.Search(t.Root, xSearch)
+		searchResult := tree2.Search(t.Root, xSearch)
 		fmt.Fprintf(w, "Search %v in BST", xSearch)
-		tree2.PrintPreOrder(t.Root)
+		fmt.Fprintf(w, "\n")
+		var s string
+		stringBST := tree2.PrintPreOrder(t.Root, &s)
+		fmt.Fprintf(w, "Binary Search Tree: %v", stringBST)
+		tree2.PrintPreOrder(t.Root, &s)
+		fmt.Fprintf(w, "Search result %v", searchResult)
 	})
 }
 func MainPage(t *tree2.Tree) http.HandlerFunc {

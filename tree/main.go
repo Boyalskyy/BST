@@ -2,6 +2,7 @@ package tree
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type Tree struct {
@@ -39,13 +40,13 @@ func (n *Node) InsertNode(data int64) {
 	}
 }
 
-func Search(n *Node, data int64) {
+func Search(n *Node, data int64) string {
 	if n == nil {
 		fmt.Println("false")
-		return
+		return "False"
 	} else if n.key == data {
 		fmt.Println("true")
-		return
+		return "True"
 	} else {
 		if n.key < data {
 			Search(n.right, data)
@@ -55,7 +56,7 @@ func Search(n *Node, data int64) {
 
 		}
 	}
-
+	return "False"
 }
 func minValued(n *Node) *Node {
 	temp := n
@@ -98,17 +99,20 @@ func Delete(n *Node, data int64) *Node {
 	}
 	return n
 }
-func PrintPreOrder(n *Node) {
+func PrintPreOrder(n *Node, s *string) string {
 
 	if n == nil {
-		return
+		return ""
 	} else {
+		x := strconv.FormatInt(n.key, 10)
+		*s += x
+		*s += " "
 		fmt.Printf("%d ", n.key)
-		PrintPreOrder(n.left)
-		PrintPreOrder(n.right)
+		PrintPreOrder(n.left, s)
+		PrintPreOrder(n.right, s)
 
 	}
-	return
+	return *s
 }
 
 func printInOrder(n *Node) {
