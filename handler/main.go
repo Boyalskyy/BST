@@ -8,6 +8,11 @@ import (
 	"strconv"
 )
 
+// @Summary Remove
+// @Tags remove
+// @Description remove value from BST
+// @Router /delete [get]
+
 func Remove(t *tree2.Tree) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		remove := r.URL.Query().Get("remove")
@@ -25,6 +30,12 @@ func Remove(t *tree2.Tree) http.HandlerFunc {
 		tree2.PrintPreOrder(t.Root, &s)
 	})
 }
+
+// @Summary Insert
+// @Tags insert
+// @Description insert value in BST
+// @Router /insert [get]
+
 func Insert(t *tree2.Tree) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		insert := r.URL.Query().Get("insert")
@@ -41,6 +52,12 @@ func Insert(t *tree2.Tree) http.HandlerFunc {
 		tree2.PrintPreOrder(t.Root, &s)
 	})
 }
+
+// @Summary Search
+// @Tags search
+// @Description lookup value in BST
+// @Router /search [get]
+
 func Search(t *tree2.Tree) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		search := r.URL.Query().Get("search")
@@ -58,6 +75,12 @@ func Search(t *tree2.Tree) http.HandlerFunc {
 		fmt.Fprintf(w, "Search result %v", searchResult)
 	})
 }
+
+// @Summary MainPage
+// @Tags main
+// @Description welcome page
+// @Router / [get]
+
 func MainPage(t *tree2.Tree) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Binary Search Tree"))
