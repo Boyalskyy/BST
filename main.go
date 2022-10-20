@@ -13,11 +13,3 @@ func main() {
 	_ = router.NewRouter(tree)
 
 }
-
-//r := chi.NewRouter()
-//r.Use(middleware.Logger)
-//r.Get("/", handler.MainPage(&tree))
-//r.Get("/delete", handler.Remove(&tree))
-//r.Get("/insert", handler.Insert(&tree))
-//r.Get("/search", handler.Search(&tree))
-//http.ListenAndServe(":8080", r)
