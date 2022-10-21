@@ -15,7 +15,75 @@ const docTemplate = `{
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+        "/": {
+            "get": {
+                "description": "welcome page",
+                "tags": [
+                    "main"
+                ],
+                "summary": "MainPage",
+                "responses": {}
+            }
+        },
+        "/delete": {
+            "get": {
+                "description": "remove value from BST",
+                "tags": [
+                    "remove"
+                ],
+                "summary": "Remove",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "int",
+                        "name": "remove",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/insert": {
+            "get": {
+                "description": "insert value in BST",
+                "tags": [
+                    "insert"
+                ],
+                "summary": "Insert",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "int",
+                        "name": "insert",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/search": {
+            "get": {
+                "description": "lookup value in BST",
+                "tags": [
+                    "search"
+                ],
+                "summary": "Search",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "int",
+                        "name": "seacrh",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it

@@ -17,6 +17,6 @@ import (
 
 func main() {
 	tree := tree2.NewTree()
-	_ = router.NewRouter(tree)
+	router.NewRouter(tree)
 
 }

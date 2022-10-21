@@ -5,5 +5,51 @@ info:
   description: API Server for Search,Insert,Delete value in BST
   title: BST
   version: "1.0"
-paths: {}
+paths:
+  /:
+    get:
+      description: welcome page
+      responses: {}
+      summary: MainPage
+      tags:
+      - main
+  /delete:
+    get:
+      description: remove value from BST
+      parameters:
+      - description: int
+        in: query
+        name: remove
+        required: true
+        type: integer
+      responses: {}
+      summary: Remove
+      tags:
+      - remove
+  /insert:
+    get:
+      description: insert value in BST
+      parameters:
+      - description: int
+        in: query
+        name: insert
+        required: true
+        type: integer
+      responses: {}
+      summary: Insert
+      tags:
+      - insert
+  /search:
+    get:
+      description: lookup value in BST
+      parameters:
+      - description: int
+        in: query
+        name: seacrh
+        required: true
+        type: integer
+      responses: {}
+      summary: Search
+      tags:
+      - search
 swagger: "2.0"

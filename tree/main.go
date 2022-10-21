@@ -16,6 +16,7 @@ type Node struct {
 }
 
 func (t *Tree) InsertRoot(data int64) {
+
 	s := &Node{key: data}
 	if t.Root == nil {
 		t.Root = s
@@ -24,6 +25,7 @@ func (t *Tree) InsertRoot(data int64) {
 	}
 }
 func (n *Node) InsertNode(data int64) {
+
 	s := &Node{key: data}
 	if data <= n.key {
 		if n.left == nil {
@@ -43,20 +45,19 @@ func (n *Node) InsertNode(data int64) {
 func Search(n *Node, data int64) string {
 	if n == nil {
 		fmt.Println("false")
-		return "False"
-	} else if n.key == data {
-		fmt.Println("true")
-		return "True"
-	} else {
-		if n.key < data {
-			Search(n.right, data)
-
-		} else {
-			Search(n.left, data)
-
-		}
+		return "false"
 	}
-	return "False"
+	if n.key == data {
+		fmt.Println("true")
+		return "true"
+	}
+	if n.key < data {
+		return Search(n.right, data)
+	}
+	if n.key > data {
+		return Search(n.left, data)
+	}
+	return "false"
 }
 func minValued(n *Node) *Node {
 	temp := n
@@ -66,6 +67,7 @@ func minValued(n *Node) *Node {
 	return temp
 }
 func Delete(n *Node, data int64) *Node {
+
 	if nil == n {
 		return n
 	}
@@ -100,7 +102,6 @@ func Delete(n *Node, data int64) *Node {
 	return n
 }
 func PrintPreOrder(n *Node, s *string) string {
-
 	if n == nil {
 		return ""
 	} else {
@@ -113,6 +114,14 @@ func PrintPreOrder(n *Node, s *string) string {
 
 	}
 	return *s
+}
+func NewTree() Tree {
+	tree := Tree{}
+	elements := [9]int64{8, 3, 10, 1, 6, 14, 4, 7, 13}
+	for _, element := range elements {
+		tree.InsertRoot(element)
+	}
+	return tree
 }
 
 func printInOrder(n *Node) {
@@ -133,12 +142,4 @@ func printPostOrder(n *Node) {
 		printPostOrder(n.right)
 		fmt.Printf("%d ", n.key)
 	}
-}
-func NewTree() Tree {
-	tree := Tree{}
-	elements := [9]int64{8, 3, 10, 1, 6, 14, 4, 7, 13}
-	for _, element := range elements {
-		tree.InsertRoot(element)
-	}
-	return tree
 }
