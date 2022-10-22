@@ -54,7 +54,7 @@ func Insert(t *tree2.Tree) http.HandlerFunc {
 // @Summary Search
 // @Tags search
 // @Description lookup value in BST
-// @Param seacrh query int true "int"
+// @Param search query int true "int"
 // @Router /search [get]
 func Search(t *tree2.Tree) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

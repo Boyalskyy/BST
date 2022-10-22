@@ -75,7 +75,7 @@ const docTemplate = `{
                     {
                         "type": "integer",
                         "description": "int",
-                        "name": "seacrh",
+                        "name": "search",
                         "in": "query",
                         "required": true
                     }

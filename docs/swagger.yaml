@@ -45,7 +45,7 @@ paths:
       parameters:
       - description: int
         in: query
-        name: seacrh
+        name: search
         required: true
         type: integer
       responses: {}
